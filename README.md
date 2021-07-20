@@ -11,11 +11,23 @@ Feautures
     `PUT: /todos/:id/update`
     - request body 
     ```
+    ? => optional.
+
      {
-      title: String,
-      description: String
+      title:? String,
+      description:? String,
+      isCompleted:? Boolean
      }
      ```
 
    - delete a todo `DELETE: /todos/:id/delete` param `_id`
+
+   - create a todo `POST: /todos/add` 
+    - request body
+    ``` 
+    {
+     title: String,
+     description: String
+    }
+    ```
     
