@@ -1,0 +1,22 @@
+{
+  "name": "todos-api",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "git@github.com:armstrongsouljah/todos-api.git",
+  "author": "Armstrong <armstrongsouljah@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^4.0.0",
+    "mongoose": "^5.13.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
