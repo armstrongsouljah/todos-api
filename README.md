@@ -30,4 +30,7 @@ Feautures
      description: String
     }
     ```
+
+- Authentication
+- signup users `POST: /auth/register`
     
