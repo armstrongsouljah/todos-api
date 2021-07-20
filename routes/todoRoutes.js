@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const TodoController = require('../controllers/todoController')
+const checkToken = require('./routerGuard')
 
-router.get('/', async(req, res) => {
+
+router.get('/', checkToken, async(req, res) => {
+
     let todos = await TodoController.fetchAllTodos();
     if(todos.length) {
         return res.status(200).json({
@@ -14,7 +17,7 @@ router.get('/', async(req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', checkToken, async (req, res) => {
     const {id} = req.params
     let todo = await TodoController.getTodo(id);
 
@@ -36,7 +39,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-router.put('/:id/update', async (req, res) => {
+router.put('/:id/update', checkToken, async (req, res) => {
     const {id} = req.params
     let data  = req.body;
 
@@ -58,7 +61,7 @@ router.put('/:id/update', async (req, res) => {
     }
 })
 
-router.delete('/:id/delete', async (req, res) => {
+router.delete('/:id/delete', checkToken, async (req, res) => {
     const {id} = req.params
     if(!id ) {
         return res.status(400).json({
@@ -71,7 +74,7 @@ router.delete('/:id/delete', async (req, res) => {
     })
 })
 
-router.post('/add', async (req, res) => {
+router.post('/add', checkToken, async (req, res) => {
     const {title, description} = req.body
     if (title.trim() && description.trim()) {
         let todo =  await TodoController.addTodo({title, description});
