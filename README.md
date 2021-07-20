@@ -32,5 +32,14 @@ Feautures
     ```
 
 - Authentication
-- signup users `POST: /auth/register`
+    signup users `POST: /auth/register`
+
+    - payload:
+
+    ```
+        {
+            username: String,
+            password: String
+        }
+    ```
     

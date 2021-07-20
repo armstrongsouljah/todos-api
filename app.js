@@ -2,6 +2,7 @@ const express = require('express');
 const mogooose = require('mongoose');
 const bodyParser = require('body-parser');
 const todoRoutes = require('./routes/todoRoutes')
+const authRoutes = require('./routes/authRoutes')
 require('dotenv').config()
 
 const { DATABASE_URL } = process.env
@@ -12,7 +13,10 @@ const app = express()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/todos', todoRoutes);
+app.use('/todos', todoRoutes, (next) => {
+    next()
+});
+app.use('/auth', authRoutes);
 
 // connect db
 mogooose.connect(DATABASE_URL, {
