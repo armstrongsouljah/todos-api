@@ -31,6 +31,8 @@ Feautures
     }
     ```
 
+    **all above endpoints require** `Authorization` header.
+
 - Authentication
     signup users `POST: /auth/register`
 
@@ -40,6 +42,26 @@ Feautures
         {
             username: String,
             password: String
+        }
+    ```
+
+    signup users `POST: /auth/login`
+
+    - payload:
+
+    ```
+        {
+            username: String,
+            password: String
+        }
+    ```
+
+    - response:
+
+    ```
+        {
+            message: String,
+            token: String
         }
     ```
     
