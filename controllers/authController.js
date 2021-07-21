@@ -56,7 +56,8 @@ const userLogin = async (data) => {
        return{
            data: {
             message: "Successfully logged in",
-            token
+            token,
+            user
         }
        } 
    } else {
